@@ -3,12 +3,14 @@ package com.luv2code.thymeleafdemo.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class helloWorldController {
     // need a controller to show initial HTML form
-    @RequestMapping("/showForm")
+    @GetMapping("/showForm")
     public String showForm() {
         return "helloworld-form";
     }
@@ -30,6 +32,19 @@ public class helloWorldController {
 
         // create the message
         String result = "Yo! " + theName;
+
+        // add message to the model
+        model.addAttribute("message", result);
+        return "helloworld";
+    }
+
+    @RequestMapping("/processFormVersionThree")
+    public String processFormVersionThree(@RequestParam("studentName") String theName, Model model) {
+        // convert the data to all caps
+        theName = theName.toUpperCase();
+
+        // create the message
+        String result = "Hey my friend! " + theName;
 
         // add message to the model
         model.addAttribute("message", result);

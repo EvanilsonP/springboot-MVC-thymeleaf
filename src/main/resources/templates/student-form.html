@@ -15,7 +15,7 @@
 
         <br><br>
 
-        Last Name: <input type="text" th:field="${student.lastName}"/>
+        Last Name: <input type="text" th:field="${student.lastName}" />
 
         <br><br>
 
@@ -25,6 +25,11 @@
             <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
 
         </select>
+
+        Favorite languages:
+        <input type="radio" th:field="${student.favoriteLanguage}" th:value="Go">Go</input>
+        <input type="radio" th:field="${student.favoriteLanguage}" th:value="Java">Java</input>
+        <input type="radio" th:field="${student.favoriteLanguage}" th:value="PHP">PHP</input>
 
         <input type="submit" value="Submit">
     </form>

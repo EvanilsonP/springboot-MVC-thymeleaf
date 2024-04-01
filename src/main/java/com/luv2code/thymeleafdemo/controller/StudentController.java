@@ -15,8 +15,8 @@ public class StudentController {
 
     @Value("${countries}")
     List<String> countries;
-    @Value("${favoriteLanguages}")
-    List<String> favoriteLanguages;
+    @Value("${languages}")
+    List<String> languages;
 
     @GetMapping("/showStudentForm")
     public String showForm(Model theModel) {
@@ -30,7 +30,7 @@ public class StudentController {
         theModel.addAttribute("countries", countries);
 
         // add the list of favorite languages to the model
-        theModel.addAttribute("favoriteLanguages", favoriteLanguages);
+        theModel.addAttribute("languages", languages);
 
         return "student-form";
     }
